@@ -14,7 +14,7 @@ Bij het opstarten van een switch doorloopt deze een 5-stappige Boot Sequence:
 4. BL initialiseert van the flash file system.
 5. BL zoekt en laadt een default IOS software image op de memory, geeft de controle van de switch over naar de IOS
 
-![Samenvatting%20CNII%20b5f3d01103ad4db5b47c774d26ed7f02/image1.png](Samenvatting%20CNII%20b5f3d01103ad4db5b47c774d26ed7f02/image1.png)
+![Switch Boot Sequence](img/switchBootSequence.png)
 
 ### 1.1.2 The boot system Command
 
@@ -24,7 +24,7 @@ Hierna zorgt IOS voor de initialisatie van de interfaces via de Cisco IOS comman
 
 In dit voorbeeld, zie tabel.
 
-![Samenvatting%20CNII%20b5f3d01103ad4db5b47c774d26ed7f02/image2.png](Samenvatting%20CNII%20b5f3d01103ad4db5b47c774d26ed7f02/image2.png)
+![Boot System Commando](img/bootSystemCommando.png)
 
 ### 1.1.3 Switch Led Indicators
 
@@ -37,11 +37,11 @@ Cisco Catalyst switches hebben 6 LED indicator lights. Deze staan op het voorpan
 - **Port Speed LED (SPEED)**
 - **Power over Ethernet LED (PoE)**
 
-![Samenvatting%20CNII%20b5f3d01103ad4db5b47c774d26ed7f02/image3.png](Samenvatting%20CNII%20b5f3d01103ad4db5b47c774d26ed7f02/image3.png)
+![Switch Led Indicator](img/switchLedIndicator.png)
 
 ### 1.1.3 Recovering from a System Crash
 
-![Samenvatting%20CNII%20b5f3d01103ad4db5b47c774d26ed7f02/image4.png](Samenvatting%20CNII%20b5f3d01103ad4db5b47c774d26ed7f02/image4.png)
+![Recovering from a System Crash](img/recoveringSystemCrash.png)
 
 ### 1.1.5 Switch Management Access
 
@@ -53,7 +53,7 @@ Om switch voor te bereiden op remote management access, moet de SVI (Switch Virt
 
 ### 1.2.1 Duplex Communication
 
-![Samenvatting%20CNII%20b5f3d01103ad4db5b47c774d26ed7f02/image5.png](Samenvatting%20CNII%20b5f3d01103ad4db5b47c774d26ed7f02/image5.png)
+![Duplex Communication](img/duplexCommunication.png)
 
 Full – duplex: vergroot de bandbreedte efficientie, bidirectionele communicatie
 
@@ -74,17 +74,17 @@ Half-duplex: unidirectionele communicatie,creeert performantie problemen doordat
 
 Commando mdix auto in de globale configuratie
 
-![Samenvatting%20CNII%20b5f3d01103ad4db5b47c774d26ed7f02/image6.png](Samenvatting%20CNII%20b5f3d01103ad4db5b47c774d26ed7f02/image6.png)
+![Auto MDIX](img/autoMDIX.png)
 
 ### 1.2.4 Switch Verification Commands
 
-![Samenvatting%20CNII%20b5f3d01103ad4db5b47c774d26ed7f02/image7.png](Samenvatting%20CNII%20b5f3d01103ad4db5b47c774d26ed7f02/image7.png)
+![Switch Verification Commands](img/switchVerificationCommands.png)
 
-1.2.5
+### 1.2.5
 
 ### 1.2.6 Network Access Layer Issues
 
-![Samenvatting%20CNII%20b5f3d01103ad4db5b47c774d26ed7f02/image8.png](Samenvatting%20CNII%20b5f3d01103ad4db5b47c774d26ed7f02/image8.png)
+![Network Access Layer Issues](img/NetworkAccessLayerIssues.png)
 
 De mogelijke errors code dit kunnen oplopen bij het commando show interfaces.
 
@@ -100,7 +100,7 @@ De mogelijke errors code dit kunnen oplopen bij het commando show interfaces.
 
 ### 1.2.8 Troubleshooting Network Access Layer Issues
 
-![Samenvatting%20CNII%20b5f3d01103ad4db5b47c774d26ed7f02/image9.png](Samenvatting%20CNII%20b5f3d01103ad4db5b47c774d26ed7f02/image9.png)
+![Troubleshooting Network Access Layer Issues](img/troubleshootingNALIssues.png)
 
 ## 1.3 Secure Remote Access
 
@@ -133,7 +133,7 @@ De mogelijke errors code dit kunnen oplopen bij het commando show interfaces.
 5. vty lijnen instellen
     1. 
         
-        ![Samenvatting%20CNII%20b5f3d01103ad4db5b47c774d26ed7f02/image10.png](Samenvatting%20CNII%20b5f3d01103ad4db5b47c774d26ed7f02/image10.png)
+        ![VTY lijnen instellen](img/instellenVTYLijnen.png)
         
 6. SSH version 2 aanzetten
     1. ip ssh version 2
@@ -142,11 +142,11 @@ De mogelijke errors code dit kunnen oplopen bij het commando show interfaces.
 
 ### 1.4.1 Configure Basic Router Settings
 
-![Samenvatting%20CNII%20b5f3d01103ad4db5b47c774d26ed7f02/image11.png](Samenvatting%20CNII%20b5f3d01103ad4db5b47c774d26ed7f02/image11.png)
+![Configuratie R1](img/instellenR1.png)
 
-![Samenvatting%20CNII%20b5f3d01103ad4db5b47c774d26ed7f02/image12.png](Samenvatting%20CNII%20b5f3d01103ad4db5b47c774d26ed7f02/image12.png)
+![Configuratie Banner](img/configuratieMOTD.png)
 
-![Samenvatting%20CNII%20b5f3d01103ad4db5b47c774d26ed7f02/image13.png](Samenvatting%20CNII%20b5f3d01103ad4db5b47c774d26ed7f02/image13.png)
+![Kopiëren running-config](img/copyRunningConfig.png)
 
 1.4.2
 
@@ -154,7 +154,7 @@ De mogelijke errors code dit kunnen oplopen bij het commando show interfaces.
 
 ### 1.4.4 Configure Router Interfaces
 
-![Samenvatting%20CNII%20b5f3d01103ad4db5b47c774d26ed7f02/image14.png](Samenvatting%20CNII%20b5f3d01103ad4db5b47c774d26ed7f02/image14.png)
+![Configuratie van Router Interfaces](img/configuratieRouterInterfaces.png)
 
 1.4.5
 
@@ -166,7 +166,7 @@ De mogelijke errors code dit kunnen oplopen bij het commando show interfaces.
 - Het aanzetten en het geven van een loopback adres
     - 
         
-        ![Samenvatting%20CNII%20b5f3d01103ad4db5b47c774d26ed7f02/image15.png](Samenvatting%20CNII%20b5f3d01103ad4db5b47c774d26ed7f02/image15.png)
+        ![Configuratie van IPV4 Loopback Interfaces](img/configuratieLoopbackInterfaces.png)
         
 
 ## 1.5 Verify Directly Connected Networks
@@ -229,7 +229,7 @@ Switch maakt Layer 2 forward beslissing heel snel, dit komt door software op ASI
     - Er wordt gecheckt voor errors: de frame wordt pas geforward als hij vrij is van errors anders word de frame gedropped.
     - Automatisch bufferen
 
-![Samenvatting%20CNII%20b5f3d01103ad4db5b47c774d26ed7f02/image16.png](Samenvatting%20CNII%20b5f3d01103ad4db5b47c774d26ed7f02/image16.png)
+![Frame bij Store and Forward Switching](img/frameStoreAndForwardSwitching.png)
 
 ### 2.1.7 Cut-Through Switching
 
@@ -240,7 +240,7 @@ Switch maakt Layer 2 forward beslissing heel snel, dit komt door software op ASI
     - Kan de bandbreedte problemen opnemen
     - Kan geen poorten ondersteunen met verschillende snelheden tussen ingress naar egress
 
-![Samenvatting%20CNII%20b5f3d01103ad4db5b47c774d26ed7f02/image17.png](Samenvatting%20CNII%20b5f3d01103ad4db5b47c774d26ed7f02/image17.png)
+![Frame bij Cut-Trough Switching](img/frameCutTroughSwitching.png)
 
 ## 2.2 Collision and Broadcast Domains
 
@@ -286,8 +286,14 @@ Switch maakt Layer 2 forward beslissing heel snel, dit komt door software op ASI
         - kleinere broadcast domeinen
 
 ### 3.1.2 Benefits of a VLAN Design
-
-[Voordelen van een VLAN Design](https://www.notion.so/5629bb46c2164394bf3659631083b217)
+|Voordeel   | Beschrijving      |
+|:---       | :---              |
+|**kleinere broadcast domeinen** | de LAN verdelen, verminderd de aantal apparaten in een broadcast domein   |
+|**verbeterde beveiliging** | alleen users uit dezelfde VLAN kunnen met elkaar communicern|
+|**verbeterde IT efficiëntie**  | VLANs kunnen apparaten groepen met dezelfde functionaliteiten|
+|**verminderde kosten** | 1 switch kan meerdere groepen van VLANs supporten |
+|**betere performantie**    | kleinere broadcast domeinen, verminderen traffic en verbeteren de bandbreedte |
+|**simpelere management**   |dezelfde groepen zullen de dezelfde applicaties en andere network nodigheden |
 
 ### 3.1.3 Types of VLANs
 
@@ -328,15 +334,21 @@ Switch maakt Layer 2 forward beslissing heel snel, dit komt door software op ASI
 
 - zonder een Layer 3 apparaat om de VLANs te verbinden met elkaar, de apparaten in  andere VLANs kunnen niet communiceren
 
-### 3.2.4 VLAN Identifaction with a Tag
+### 3.2.4 VLAN Identification with a Tag
 
-![Untitled](Samenvatting%20CNII%20b5f3d01103ad4db5b47c774d26ed7f02/Untitled.png)
+![VLAN Identification with a Tag](img/VLANIdentification.png)
 
 - IEEE 802.1Q header is 4 bytes
 - wanneer de tag gemaakt moet de FCS opnieuw uitgerekend worden
 - wanneer het verzonden wordt naar een end-apparaat, de tag moet verwijderd worden & de FCS moet opnieuw uitgerekend worden naar zijn origineel nummer
 
-[Untitled](https://www.notion.so/ec4fbd6f787a4f3a9cd785f4dd1f5dc3)
+|802.1Q VLAN Tag Field  | Functie   |
+|:---                   |:---       |
+|**Type**                   | 2-Byte veld met hexadecimaal 0X8100, = Tag Protocol ID (TPID) |
+|**User Priority**          | 3-bit waarde dan de level van service implementatie ondersteunt   |
+|**Canonical Format Identifier (CFI)**  | 1 bit waarde die token ring frames ondersteunt op Ethernet    |
+|**VLAN ID (VID)**  | 12 bit VLAN identifier dat tot 4096 VLANs kan ondersteunen    |
+
 
 ### 3.2.5 Native VLANs and 802.1Q Tagging
 
@@ -354,7 +366,7 @@ de VOIP (Voice Over IP) is een driepoortige switch
 - de telefoon tagt zijn eigen traffic (Voice) en zet Cost of Service (CoS) ⇒ CoS is een QoS voor Laag 2
 - de telefoon mag of mag niet frames tagggen van de PC
 
-![Untitled](Samenvatting%20CNII%20b5f3d01103ad4db5b47c774d26ed7f02/Untitled%201.png)
+![Voice VLAN Tagging](img/voiceVLANTagging.png)
 
 ## 3.3 VLAN Configuration
 
@@ -374,13 +386,13 @@ de VOIP (Voice Over IP) is een driepoortige switch
 
 ### 3.3.2 VLAN Creation Commands
 
-![Untitled](Samenvatting%20CNII%20b5f3d01103ad4db5b47c774d26ed7f02/Untitled%202.png)
+![VLAN Creation Commands](img/VLANCreationCommands.png)
 
 ### 3.3.3 VLAN Creation Example
 
 ### 3.3.4 VLAN Port Assignment Commands
 
-![Untitled](Samenvatting%20CNII%20b5f3d01103ad4db5b47c774d26ed7f02/Untitled%203.png)
+![VLAN Port Assignment](img/VLANPortAssignment.png)
 
 ### 3.3.5 VLAN Port Assignment Example
 
@@ -398,7 +410,7 @@ MAAR het mag ook verbonden zijn aan 1 Voice VLAN wanneer er een telefoon aan
 show vlan [brief | id vlan-id | name vlan-name | summary]
 ```
 
-![Untitled](Samenvatting%20CNII%20b5f3d01103ad4db5b47c774d26ed7f02/Untitled%204.png)
+![Verify VLAN information](img/verifyVLANInfo.png)
 
 ### 3.3.9 Change VLAN Port Membership
 
@@ -418,7 +430,7 @@ show vlan [brief | id vlan-id | name vlan-name | summary]
 
 ### 3.4.1 Trunk Configuration Commands
 
-![Untitled](Samenvatting%20CNII%20b5f3d01103ad4db5b47c774d26ed7f02/Untitled%205.png)
+![Trunk Configuration Commands](img/trunkConfigurationCommmands.png)
 
 ### 3.4.2 Trunk Configuration Example
 
@@ -456,11 +468,11 @@ show vlan [brief | id vlan-id | name vlan-name | summary]
 
 - de switchport mode commando heeft meer opties
 
-![Untitled](Samenvatting%20CNII%20b5f3d01103ad4db5b47c774d26ed7f02/Untitled%206.png)
+![Negotiated interfaces modes](img/negotiatedInterfaceModes.png)
 
 ### 3.5.3 Results of a DTP Configuration
 
-![Untitled](Samenvatting%20CNII%20b5f3d01103ad4db5b47c774d26ed7f02/Untitled%207.png)
+![Results of a DTP Configuration](img/resultsofDTPConfiguration.png)
 
 ### 3.5.4 Verify DTP Mode
 
@@ -492,14 +504,14 @@ show vlan [brief | id vlan-id | name vlan-name | summary]
 - gebruikt maar 1 fysieke Ethernet interface om netwerkverkeer te versturen tussen verschillende VLANs op het netwerk
     - de Cisco IOS router Ethernet interface is ingesteld als de 802.1Q trunk en is geconnecteerd met de trunk poort op een Laag 2 Switch
 
-![Untitled](Samenvatting%20CNII%20b5f3d01103ad4db5b47c774d26ed7f02/Untitled%208.png)
+![Router-on-a-Stick Inter-VLAN Routing](img/routerOnAStickInterVLANRouting.png)
 
 ### 4.1.4 Inter-VLAN Routing on a Layer 3 switch
 
 - de moderne methode om inter-VLAN routing te implementeren is het gebruik maken van Laag 3 switches en Switched Virtual Interfaces (SVI)
 - SVI = een virtuele interface dat geconfigueerd is op een laag 3 switch, zoals getoond op de figuur
 
-![Untitled](Samenvatting%20CNII%20b5f3d01103ad4db5b47c774d26ed7f02/Untitled%209.png)
+![Inter-VLAN Routing](img/interVLANRouting.png)
 
 - Inter-VLAN SVIs zijn op dezelfde manier geïmplementeerd zoals de management VLAN interface
 - de voordelen hiervan:
@@ -531,7 +543,7 @@ show vlan [brief | id vlan-id | name vlan-name | summary]
 
 ### 4.4.1 Common Inter-VLAN Issues
 
-![Untitled](Samenvatting%20CNII%20b5f3d01103ad4db5b47c774d26ed7f02/Untitled%2010.png)
+![Common Inter-VLAN Issues](img/commonInterVLANIssues.png)
 
 # Module 5: STP Concepts
 
@@ -599,7 +611,7 @@ show vlan [brief | id vlan-id | name vlan-name | summary]
     - Extended System ID: extended system ID waarde = een decimale waarde die aan de BP wordt toegevoegd om een VLAN te identificeren for deze BPDU
     - MAC Address
 
-![Untitled](Samenvatting%20CNII%20b5f3d01103ad4db5b47c774d26ed7f02/Untitled%2011.png)
+![Bridge ID](img/bridgeID.png)
 
 ### 5.2.3 Stap 1: Bepaal de root bridge
 
@@ -614,10 +626,10 @@ show vlan [brief | id vlan-id | name vlan-name | summary]
 - gebeurt obv de internal root path cost ( = de som van alle poortkosten op het pad naar de root bridge)
 - de default poortkosten:
     
-    ![Untitled](Samenvatting%20CNII%20b5f3d01103ad4db5b47c774d26ed7f02/Untitled%2012.png)
+    ![Default Poortkosten](img/defaultPoortkosten.png)
     
 
-![Untitled](Samenvatting%20CNII%20b5f3d01103ad4db5b47c774d26ed7f02/Untitled%2013.png)
+![Stappenplan Root Ports](img/stappenplanRootPorts.png)
 
 ### 5.2.5 Stap 3: Bepaal de designated ports
 
@@ -643,7 +655,7 @@ show vlan [brief | id vlan-id | name vlan-name | summary]
 
 ### 5.2.8 Operational Details of Each Port State
 
-![Untitled](Samenvatting%20CNII%20b5f3d01103ad4db5b47c774d26ed7f02/Untitled%2014.png)
+![operational Details of Each Port State](img/operationDetails.png)
 
 ### 5.2.9 Per-VLAN Spanning Tree
 
@@ -655,7 +667,7 @@ show vlan [brief | id vlan-id | name vlan-name | summary]
 
 ### 5.3.1 Different Versions of STP
 
-![Untitled](Samenvatting%20CNII%20b5f3d01103ad4db5b47c774d26ed7f02/Untitled%2015.png)
+![Versions of STP](img/versionsOfSTP.png)
 
 ### 5.3.2 RSTP Concepts
 
@@ -663,15 +675,15 @@ show vlan [brief | id vlan-id | name vlan-name | summary]
 
 - Port States:
     
-    ![Untitled](Samenvatting%20CNII%20b5f3d01103ad4db5b47c774d26ed7f02/Untitled%2016.png)
+    ![Untitled](img/portStates.png)
     
 - Port Roles:
     
-    ![Untitled](Samenvatting%20CNII%20b5f3d01103ad4db5b47c774d26ed7f02/Untitled%2017.png)
+    ![Untitled](img/portRoles.png)
     
 - Alternate en Backup Ports:
     
-    ![Untitled](Samenvatting%20CNII%20b5f3d01103ad4db5b47c774d26ed7f02/Untitled%2018.png)
+    ![Untitled](img/alternateBackupPorts.png)
     
 
 ### 5.3.4 PortFast and BPDU Guard
@@ -688,17 +700,17 @@ show vlan [brief | id vlan-id | name vlan-name | summary]
 - in sommige scenario's is het mogelijk om een extra link te leggen voor meer bandbreedte en redundantie
 - maar door STP (Spanning Tree Protocol) wil deze link blokkeren om switching loop te voorkomen
 
-![Untitled](Samenvatting%20CNII%20b5f3d01103ad4db5b47c774d26ed7f02/Untitled%2019.png)
+![Link Agrregation](img/linkAggregation.png)
 
 - EtherChannel wordt gebruikt om tegen te gaan dat het niet geblockt wordt door STP
 - EtherChannel = link aggregatie technologie dat meerder ethernet links samenvoegt tot 1 logische link
 
-![Untitled](Samenvatting%20CNII%20b5f3d01103ad4db5b47c774d26ed7f02/Untitled%2020.png)
+![Link Aggregation 2](img/linkAggregation2.png)
 
 ### 6.1.2 EtherChannel
 
 - EtherChannel technologie is orgineel gemaakt door Cisco als een LAn switch-to-switch techniek om meerdere Fast Ethernet of Gigabit Ethernet poorten te groeperen tot 1 logisch kanaal
-- wanneer EtherChannel geconfigueerd is, noemt de virtual interface die gecreerd is **port channel**
+- wanneer EtherChannel geconfigueerd is, noemt de virtual interface die gecreeërd is **port channel**
 
 ### 6.1.3 Voordelen van EtherChannel
 
@@ -734,7 +746,7 @@ show vlan [brief | id vlan-id | name vlan-name | summary]
 
 ### 6.1.7 PAgP Mode Settings Example
 
-![Untitled](Samenvatting%20CNII%20b5f3d01103ad4db5b47c774d26ed7f02/Untitled%2021.png)
+![PAgP Mode Settings Example](img/PAgPModeSettingsExample.png)
 
 ### 6.1.8 LACP Operation
 
@@ -747,7 +759,7 @@ show vlan [brief | id vlan-id | name vlan-name | summary]
 
 ### 6.1.9 LACP Mode Setting Example
 
-![Untitled](Samenvatting%20CNII%20b5f3d01103ad4db5b47c774d26ed7f02/Untitled%2022.png)
+![LACP Mode Setting Example](img/LACPModeSettingExample.png)
 
 ## 6.2 Configure EtherChannel
 
@@ -798,7 +810,7 @@ show vlan [brief | id vlan-id | name vlan-name | summary]
 3. DHCP Request (DHCPREQUEST)
 4. DHCP Acknowledgement (DHCPACK)
 
-![Untitled](Samenvatting%20CNII%20b5f3d01103ad4db5b47c774d26ed7f02/Untitled%2023.png)
+![Steps to Obtain a Lease](img/stepsObtainLease.png)
 
 ### 7.1.4 Steps to Renew a Lease
 
@@ -818,13 +830,13 @@ show vlan [brief | id vlan-id | name vlan-name | summary]
 2. Stap 2: definieer een DHCPv4 pool naam:  `ip dhcp pool pool-name`
 3. Stap 3: configueer DHCPv4 pool
 
-![Untitled](Samenvatting%20CNII%20b5f3d01103ad4db5b47c774d26ed7f02/Untitled%2024.png)
+![Configuratie DHCPv4 Pool](img/configuratieDHCPv4Pool.png)
 
 ### 7.2.3 Configuration Example
 
 ### 7.2.4 DHCPv4 Verification
 
-![Untitled](Samenvatting%20CNII%20b5f3d01103ad4db5b47c774d26ed7f02/Untitled%2025.png)
+![DHCPv4 Verification](img/DHCPv4Verificatie.png)
 
 ### 7.2.5 Verify DHCPv4 is Operational
 
@@ -876,7 +888,7 @@ DHCPv4 service staat standaard aan
 
 ### 8.1.3 IPv6 GUA Assignment
 
-![Untitled](Samenvatting%20CNII%20b5f3d01103ad4db5b47c774d26ed7f02/Untitled%2026.png)
+![IPv6 GUA Assignment](img/IPv6GUAAssignment.png)
 
 ### 8.1.4 Three RA Message Flags
 
@@ -1010,7 +1022,7 @@ DHCPv4 service staat standaard aan
 
 ### 9.1.4 FHRP Options
 
-![Untitled](Samenvatting%20CNII%20b5f3d01103ad4db5b47c774d26ed7f02/Untitled%2027.png)
+![FHRP Options](img/FHRPOptions.png)
 
 ## 9.2 HSRP
 
@@ -1031,7 +1043,7 @@ DHCPv4 service staat standaard aan
 
 ### 9.2.3 HSRP States and Times
 
-![Untitled](Samenvatting%20CNII%20b5f3d01103ad4db5b47c774d26ed7f02/Untitled%2028.png)
+![HSRP States and Times](img/HSRPStatesAndTimes.png)
 
 # Module 10: LAN Security Concepts
 
@@ -1125,11 +1137,11 @@ de IEEE 802.1X standaard is een poort gebaseerd access control en authentication
 
 ### 10.3.2 Switch Attack Categories
 
-![Untitled](Samenvatting%20CNII%20b5f3d01103ad4db5b47c774d26ed7f02/Untitled%2029.png)
+![Switch Attack Categories](img/switchAttackCategories.png)
 
 ### 10.3.3 Switch Attack Mitigation Techniques
 
-![Untitled](Samenvatting%20CNII%20b5f3d01103ad4db5b47c774d26ed7f02/Untitled%2030.png)
+![Switch Attack Mitigation Techniques](img/SwitchAttackMitigationTechniques.png)
 
 - deze oplossingen zullen niet effectief zijn als de management protocols niet beveiligd zijn
 - volgende strategies zijn aanbevolen:
