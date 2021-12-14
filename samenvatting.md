@@ -1151,5 +1151,59 @@ de IEEE 802.1X standaard is een poort gebaseerd access control en authentication
     - gebruikt out-of-band management netwerk om aparaten te beheren
 
 ## 10.4 MAC Address Table Attack
+### 10.4.1 Switch Operation Review
+- een Layer2 LAN switch maakt een tabel gebaseerd op de bron MAC adressen in ontvangen frames = MAC-adres tabel
+- deze wordt opgeslagen in het geheugen
+
+### 10.4.2 MAC Address Table Flooding
+- iedereen MAC tabellen hebben een vaste grootte 
+- bij MAC-adres tabel flooding attacks stuurt de hacker een grote groep fake bron MAC-adressen zodat de MAC-adres tabel vol is
+- wanneer dit gebeurt zal de switch iedere frame behandelen als een onbekend unicast en zal hij ieder inkomend verkeer naar alle poorten op hetzelfde VLAN zonder te kijken naar het MAC-adres
+
+![MAC Address Table Flooding](img/MACAddressTableFlooding.png)
+
+### 10.4.3 MAC Address Table Attack Mitigation
+- een tool zoals macof is gevaarlijk want het kan een MAC-adres tabel overflooding met MAC-adressen in een paar seconden
+- om dit tegen te gaan moeten de network administrators port security implementeren
 
 ## 10.5 LAN Attacks
+### 10.5.2 VLAN Hopping Attacks
+### 10.5.3 VLAN Double-Tagging Attacks
+### 10.5.4 DHCP Messages
+### 10.5.5 DHCP Attacks
+### 10.5.7 ARP Attacks
+### 10.5.8 Address Spoofing Attacks
+### 10.5.9 STP Attack
+### 10.5.10 CDP Reconnaissance
+
+# Module 11: Switch Security Configuration
+## 11.1 Implement Port Security
+### 11.1.1 Secure Unused Ports
+
+### 11.1.2 Mitigate MAC Address Table Attacks
+### 11.1.3 Enable Port Security
+### 11.1.4 Limit and Learn MAC Addresses
+### 11.1.5 Port Security Aging
+### 11.1.6 Port Security Violation Modes
+### 11.1.7 Ports in error-disabled State
+### 11.1.8 Verify Port Security
+
+## 11.2 Mitigate VLAN Attacks
+### 11.2.1 VLAN Attacks Review
+### 11.2.2 Steps to Mitigate VLAN Hopping Attacks
+
+## 11.3 Mitigate DHCP Attacks
+### 11.3.1 DHCP Attack Review
+### 11.3.2 DHCP Snooping
+### 11.3.3 Steps to Implement DHCP Snooping
+### 11.3.4 DHCP Snooping Configuration Example
+
+## 11.4 Mitigate ARP Attacks
+### 11.4.1 Dynamic ARP Inspection
+### 11.4.2 DAI Implementation Guidelines
+### 11.4.3 DAI Configuration Example
+
+## 11.5 Mitigate STP Attacks
+### 11.5.1 PortFast and BPDU Guard
+### 11.5.2 Configure PortFast
+### 11.5.3 Configure BPDU Guard
