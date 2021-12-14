@@ -37,7 +37,7 @@ Cisco Catalyst switches hebben 6 LED indicator lights. Deze staan op het voorpan
 - **Port Speed LED (SPEED)**
 - **Power over Ethernet LED (PoE)**
 
-![Switch Led Indicator](img/switchLedIndicator.png)
+![Switch Led Indicator](img/switchLedIndicators.png)
 
 ### 1.1.3 Recovering from a System Crash
 
@@ -179,7 +179,33 @@ De mogelijke errors code dit kunnen oplopen bij het commando show interfaces.
     - show ip route / show ipv6 route
 
 ### 1.5.2 Verify Interface Status
+- show ip interface brief
+- show ipv6 interface brief
 
+### 1.5.3 Verify IPv6 Link Local and Multicast Addresses
+- show ipv6 interface <interface-name>
+
+### 1.5.4 Verify Interface Configuration
+- show running-config interface <interface-name>
+- meer gedetaileerde interface info
+  - show interfaces
+  - show ip interface
+  - show ipv6 interface
+
+### 1.5.5 Verify Routes
+- show ip route
+- show ipv6 route
+- ping <ip-adres>
+
+### 1.5.6 Filter Show Command Output
+- section
+- include
+- exclude
+- begin
+
+### 1.5.8 Command History Feature
+- show history
+- terminal history size <grootte>
 # Module 2: Switching Concepts
 
 ## 2.1 Frame Forwarding
