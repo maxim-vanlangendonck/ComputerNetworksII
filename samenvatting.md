@@ -1,9 +1,7 @@
 # Samenvatting CNII
 
 # Module 1 – Basic Device Configuration
-
 ## Configure a Switch with Initial Settings
-
 ### 1.1.1 Switch Boot Sequence
 
 Bij het opstarten van een switch doorloopt deze een 5-stappige Boot Sequence:
@@ -30,8 +28,8 @@ In dit voorbeeld, zie tabel.
 
 Cisco Catalyst switches hebben 6 LED indicator lights. Deze staan op het voorpaneel van de switch.
 
-- **System LED (SYST):** toont of het system power krijgt en deze naar normale functionaliseert.
-- **Redundant Power Supply LED (RPS):** toont de RPS status.
+- **System LED (SYST)**: toont of het system power krijgt en deze naar normale functionaliseert.
+- **Redundant Power Supply LED (RPS)**: toont de RPS status.
 - **Port Status LED (STAT)**
 - **Port Duplex LED (DUPLX)**
 - **Port Speed LED (SPEED)**
@@ -47,10 +45,7 @@ Cisco Catalyst switches hebben 6 LED indicator lights. Deze staan op het voorpan
 
 Om switch voor te bereiden op remote management access, moet de SVI (Switch Virtual Interface) geconfigueerd worden met een IPv4 adres en subnet mask of IPv6 adres en prefix lengte. Als he van een andere netwerk komt moet er ook een default gateway ingesteld worden.
 
-### 1.1.6 Switch SVI Configuration Example
-
 ## 1.2 Configure Switch Ports
-
 ### 1.2.1 Duplex Communication
 
 ![Duplex Communication](img/duplexCommunication.png)
@@ -80,7 +75,11 @@ Commando mdix auto in de globale configuratie
 
 ![Switch Verification Commands](img/switchVerificationCommands.png)
 
-### 1.2.5
+### 1.2.5 Verify Switch Port Configuration
+
+- `show running-config`, kan gebruikt worden om te controleren of de switch correct geconfigueerd is
+- `show interfaces`
+- `show interfaces fastEthernet 0/18`
 
 ### 1.2.6 Network Access Layer Issues
 
@@ -103,7 +102,6 @@ De mogelijke errors code dit kunnen oplopen bij het commando show interfaces.
 ![Troubleshooting Network Access Layer Issues](img/troubleshootingNALIssues.png)
 
 ## 1.3 Secure Remote Access
-
 ### 1.3.1 Telnet Operation
 
 - gebruikt TCP poort 23
@@ -118,28 +116,28 @@ De mogelijke errors code dit kunnen oplopen bij het commando show interfaces.
 
 ### 1.3.3 Verify the Switch Supports SSH
 
+- `show version`
+
 ### 1.3.4 Configure SSH
 
 1. Kijken of switch SSH supports
-    1. show ip ssh
+    1. `show ip ssh`
 2. IP domein configuren
-    1. ip domain-name <domeinnaam>
+    1. `ip domain-name <domeinnaam>`
 3. RSA sleutel paar aanmaken
     1. Crypto key generate rsa
         1. Met 1024 bits
         2. Kan verwijderd via crypto key zeroize rsa in globale configuratie
 4. User authenticatie instellen
-    1. username <username> secret <wachtwoord>
+    1. `username <username> secret <wachtwoord>`
 5. vty lijnen instellen
     1. 
-        
         ![VTY lijnen instellen](img/instellenVTYLijnen.png)
         
 6. SSH version 2 aanzetten
-    1. ip ssh version 2
+    1. `ip ssh version 2`
 
 ## 1.4 Basic Router Configuration
-
 ### 1.4.1 Configure Basic Router Settings
 
 ![Configuratie R1](img/instellenR1.png)
@@ -148,15 +146,13 @@ De mogelijke errors code dit kunnen oplopen bij het commando show interfaces.
 
 ![Kopiëren running-config](img/copyRunningConfig.png)
 
-1.4.2
-
 ### 1.4.3 Dual Stack Topology
+
+![Dual Stack Topology](img/dualStackTopology.png)
 
 ### 1.4.4 Configure Router Interfaces
 
 ![Configuratie van Router Interfaces](img/configuratieRouterInterfaces.png)
-
-1.4.5
 
 ### 1.4.6 IPv4 Loopback Interfaces
 
@@ -165,37 +161,34 @@ De mogelijke errors code dit kunnen oplopen bij het commando show interfaces.
 - Gemakkelijk om het apparaat te testen of deze perfect is geïnitialiseerd
 - Het aanzetten en het geven van een loopback adres
     - 
-        
         ![Configuratie van IPV4 Loopback Interfaces](img/configuratieLoopbackInterfaces.png)
         
-
 ## 1.5 Verify Directly Connected Networks
-
 ### 1.5.1 Interface Verification Commands
 
 - Heel gemakkelijk via bepaalde show commands
-    - show ip interface brief / show ipv6 interface brief
-    - show running-config interface <interface-id>
-    - show ip route / show ipv6 route
+    - `show ip interface brief` / `show ipv6 interface brief`
+    - `show running-config interface <interface-id>`
+    - `show ip route / show ipv6 route`
 
 ### 1.5.2 Verify Interface Status
-- show ip interface brief
-- show ipv6 interface brief
+- `show ip interface brief`
+- `show ipv6 interface brief`
 
 ### 1.5.3 Verify IPv6 Link Local and Multicast Addresses
-- show ipv6 interface <interface-name>
+- `show ipv6 interface <interface-name>`
 
 ### 1.5.4 Verify Interface Configuration
-- show running-config interface <interface-name>
+- `show running-config interface <interface-name>`
 - meer gedetaileerde interface info
-  - show interfaces
-  - show ip interface
-  - show ipv6 interface
+  - `show interfaces`
+  - `show ip interface`
+  - `show ipv6 interface`
 
 ### 1.5.5 Verify Routes
-- show ip route
-- show ipv6 route
-- ping <ip-adres>
+- `show ip route`
+- `show ipv6 route`
+- `ping <ip-adres>`
 
 ### 1.5.6 Filter Show Command Output
 - section
@@ -204,12 +197,11 @@ De mogelijke errors code dit kunnen oplopen bij het commando show interfaces.
 - begin
 
 ### 1.5.8 Command History Feature
-- show history
-- terminal history size <grootte>
+- `show history`
+- `terminal history size <grootte>`
+
 # Module 2: Switching Concepts
-
 ## 2.1 Frame Forwarding
-
 ### 2.1.1 Switching in Networking
 
 - begrippen die geassocieerd zijn met het binnenkomen en weggaan van frames uit een device
@@ -239,8 +231,6 @@ Een frame volgt een twee-stappig proces wanneer deze binnenkomt in een switch:
             - switch forward de frame naar iedere poort buiten de inkomende poort ( = unknown unicast) (voor unicast adressen)
             - broadcast en multicast wordt iedere poort geflood maar niet de inkomende poort
 
-2.1.4
-
 ### 2.1.5 Switching Forwarding Methods
 
 Switch maakt Layer 2 forward beslissing heel snel, dit komt door software op ASICs (Application-Specific-Integrated Circuits.
@@ -269,7 +259,6 @@ Switch maakt Layer 2 forward beslissing heel snel, dit komt door software op ASI
 ![Frame bij Cut-Trough Switching](img/frameCutTroughSwitching.png)
 
 ## 2.2 Collision and Broadcast Domains
-
 ### 2.2.1 Collision Domains
 
 - Collision domeinen = netwerk segmenten dat dezelfde bandbreedte delen
@@ -298,9 +287,7 @@ Switch maakt Layer 2 forward beslissing heel snel, dit komt door software op ASI
     - **Hoge poort densiteit:** dit verminderd het aantal switches nodig, zorgt ervoor dat de traffic lokaal blijft
 
 # Module 3 VLANs
-
 ## 3.1 Overvieuw of VLANs
-
 ### 3.1.1 VLAN Definitions
 
 - VLANs = logische connecties met dezelfde apparaten
