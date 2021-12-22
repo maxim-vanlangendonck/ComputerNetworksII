@@ -1072,12 +1072,10 @@ DHCPv4 service staat standaard aan
 ![HSRP States and Times](img/HSRPStatesAndTimes.png)
 
 # Module 10: LAN Security Concepts
-
 ## 10.1 Endpoint Security
-
 ### 10.1.1 Network Attacks Today
 
-- Distributed Denial of Service (DDoS)
+- Distributed Denial of Service (DDoS): een gecoördineerde aanval 
 - Data Breach
 - Malware
 
@@ -1085,15 +1083,21 @@ DHCPv4 service staat standaard aan
 
 - Virtual Private Network (VPN) enabled router
 - Next-Generation Firewall (NGFW)
-- Network Access Control (NAC)
+- Network Access Control (NAC), bevat AAA diensten; authentication, authorization en accouting
 
 ### 10.1.3 Endpoint Protection
 
+- endpoints zijn hosts die meestal bestaan uit laptops, desktops, servers en IP-telefonen
+- endpoints hebben typisch een traditionele host-gebaseerde security features: 
+  - antivirus/antimalware
+  - host-gebaseerde firewalls
+  - host-gebaseerde intrusion preventie systemen (HIPSs)
 - hosts zijn het best beveiligd door een combinatie van NAC, AMP software, een email security appliance (ESA) en een web security appliance (WSA)
 
 ### 10.1.4 Cisco Email Security Appliance
 
 - de Cisco ESA apparaat is gemaakt om Simple Mail Transfer Protocol (SMTP) te monitoren
+- maakt gebruikt van Cisco Talos, deze detecteert gevaren en oplossingen door gebruik te maken van een wereldwijde databank monitor systeem
 - functies van de Cisco ESA
     - het blokkeren van bekende threats
     - email met slechte links verwijderen
@@ -1104,9 +1108,16 @@ DHCPv4 service staat standaard aan
 
 - Cisco Web Security Appliance (WSA) is een beperkingstechnologie voor webgebaseerde bedreigingen
 - Cisco WSA combineert de geavanceerde malware bescherming, applicatie zichtbaarheid en controle,
+- Cisco WSA geeft een volledige controle over hoe gebruikers het internet gebruiken
+  - sommige applicatie kunnen toegelaten worden
+  - met restrictie van tijd en bandbreedte
+  - afhankelijk van de noden van de organisatie
+- maak een blacklist bij van URLs
+  - URL-filtering
+  - malware scanning
+  - URL categorisering
 
 ## 10.2 Access Control
-
 ### 10.2.1 Authentication with a Local Password
 
 - verschillende types van authenticatie
@@ -1114,6 +1125,7 @@ DHCPv4 service staat standaard aan
     - SSH is een veiligere methode voor remote access
 - een lokale database methode heeft limitaties
     - geen fallback authenticatie methode
+    - moet op ieder apparaat apart geconfigueerd worden => niet schaalbaar
 
 ### 10.2.2 AAA Components
 
@@ -1148,21 +1160,23 @@ DHCPv4 service staat standaard aan
 
 ### 10.2.6 802.1X
 
-de IEEE 802.1X standaard is een poort gebaseerd access control en authentication protocol, dit protocol beperkt ongeautoriseerde workstation om te connecteren tot de LAN via publieke switch poorten
+de **IEEE 802.1X** standaard is een poort gebaseerd access control en authentication protocol, dit protocol beperkt ongeautoriseerde workstation om te connecteren tot de LAN via publieke switch poorten
 
 - specieke rollen van de apparaten in een 802.1X poort-gebaseerde authenicatie:
-    - client (suppllicant)
-    - switch (authenticator)
+    - client (suppllicant): een apparaat die 802.1X-compliant client software draait
+    - switch (authenticator): 
     - authentication server
 
 ## 10.3 Layer 2 Security Threats
-
 ### 10.3.1 Layer 2 Vulnerabilities
 
-- als Layer 2 gecompromised is, zijn alle lagen erboven ook gecompromised
+- als Layer 2 gecompromiseerd is, zijn alle lagen erboven ook gecompromiseerd
+
+![OSI lagen](img/OSIlagenDiagram.png)
 
 ### 10.3.2 Switch Attack Categories
 
+- de beveiliging is even sterk als de slechtste link in het systeem => laag 2 wordt gezien als de slechtse link
 ![Switch Attack Categories](img/switchAttackCategories.png)
 
 ### 10.3.3 Switch Attack Mitigation Techniques
@@ -1194,42 +1208,130 @@ de IEEE 802.1X standaard is een poort gebaseerd access control en authentication
 
 ## 10.5 LAN Attacks
 ### 10.5.2 VLAN Hopping Attacks
+- een VLAN hopping attack laat toe om netwerkverkeer van een ene VLAN te kunnen bekijken van een andere VLAN zonder de hulp van een router
+- de hacker configueert een host om te doen alsof ze een switch is, door een voordeel te nemen uit de automatische trunking port feature
+
 ### 10.5.3 VLAN Double-Tagging Attacks
+- verschillende stappen
+  - **stap 1**: de hacker stuurt een double-tagged 802.1Q frame naar de switch, de outer header heeft de VLAN tag van de hacker, deze is dezelfde als de native VLAN van de trunk poort
+  - **stap 2**: de frame arriveert op de eerste switch, deze lijkt op de eerste 4-byte 802.1Q tag
+  - **stap 3**: 
+- VLAN Attack Mitigation
+  - disable trunking op alle toegangspoorten
+  - disabel auto trunking on trunk links zodat trunks manueel aangezet moeten worden
+  - maak zeker dat de native VLAN alleen gebruikt wordt voor trunk links
+
 ### 10.5.4 DHCP Messages
+- DHCP server geven dynamisch IP configuratie informatie, IP-adres, default gateway, DNS server
+- 
 ### 10.5.5 DHCP Attacks
+- 2 types van DHCP aanvallen
+  - **DHCP Starvation Attack**
+  - **DHCP Spoofing Attack**
+    - dit gebeurt wanneer er een vreemd DHCP server aan het netwerk geconnecteerd is, en valse IP configuratie parameter geeft aan legitieme client
+      - verkeerde default gateway
+      - verkeerde DNS server
+      - verkeerd IP-adres
+- mitigated door het implementeren van DHCP snooping
+
 ### 10.5.7 ARP Attacks
+
 ### 10.5.8 Address Spoofing Attacks
+
 ### 10.5.9 STP Attack
+- aanvallers kunnen het Spanning Tree Protocol (STP) manipuleren zodat 
+- mitigated door het implementeren van BDPU guard op alle toegangspoorten
+- 
 ### 10.5.10 CDP Reconnaissance
+- CPD is een proprietaire layer link discovery protocol
 
 # Module 11: Switch Security Configuration
 ## 11.1 Implement Port Security
 ### 11.1.1 Secure Unused Ports
+- alle switch poorten (interfaces) moeten beveiligd worden voordat de switch gebruitk word voor productie-gebruik
+- een simpele methode is om de ongebruikte poorten uitzetten, via `shutdown` commando
+- om een grote range van poorten te configureren, kun je de `interface range` commando
 
 ### 11.1.2 Mitigate MAC Address Table Attacks
+- de simpelste en meest effectieve manier om MAC-adres overflow aanvallen tegengaan is om poort-beveiliging 
+  - poort-beveiliging limiteert de aantal juiste MAC adressen die toegelaten zijn op een poort. Dit maakt dat een admin de mac adressen manueel geconfigueerd kunnen worden voor een poort
+  - door het aantal van toegelaten MAC-adressen
+
 ### 11.1.3 Enable Port Security
+- poort beveiliging gebeurt met de `switchport port-security` interface commando
+- `show port-security`
+
 ### 11.1.4 Limit and Learn MAC Addresses
+- om een maximum aantal MAC-adres toe te laten op een poort, gebruikt volgend commando:
+  - `switchport port-security maximum <value>`
+  - de standaard waarde is 1
+  - de maximum aantal van beveiligde MAC-adressen dat geconfigueerd kunnen worden is afhankelijk van de switch en de iOS
+- de configuratie over het leren van MAC-adressen op een beveiligde poort kan op 3 verschillende manieren
+  - manueel geconfigueerd: met volgende commando: `switchport port-security mac-address <mac-address>`
+  - dynamisch geleerd
+  - dynamisch geleerd - sticky: aanzetten met volgend commando: `switchport port-security mac-address sticky`
+
 ### 11.1.5 Port Security Aging
+- 
 ### 11.1.6 Port Security Violation Modes
+
 ### 11.1.7 Ports in error-disabled State
 ### 11.1.8 Verify Port Security
 
 ## 11.2 Mitigate VLAN Attacks
 ### 11.2.1 VLAN Attacks Review
 ### 11.2.2 Steps to Mitigate VLAN Hopping Attacks
+- **Stap 1**: zet DTP onderhandelingen op niet-trunking uit via `switchport mode access`, interface configuratie commando
+- **Stap 2**: zet ongebruikte poorten uit en zet ze in niet gebruikte VLAN
+- **Stap 3**: zet de trunk link op een trunking poort manueel aan door het `switcport mode trunk` commando
+- **Stap 4**: zet DTP (auto trunking) onderhandelingen op de trunking poorten uit door het `switchport nonegotiate` commando
+- **Stap 5**: zet de native VLAN op een VLAN anders dan VLAN1, door `switchport trunk native vlan <vlan_number>`, gebruikt de native VLAN niet als de data VLAN
 
 ## 11.3 Mitigate DHCP Attacks
 ### 11.3.1 DHCP Attack Review
+- DHCP Starvation Attack
+- DHCP Spoofing Attack
+
 ### 11.3.2 DHCP Snooping
 ### 11.3.3 Steps to Implement DHCP Snooping
+- **Stap 1**: zet DHCP snooping aan met `ip dhcp snooping` globale configuratie commando
+- **Stap 2**: op trusted poorten, gebruikt het `ip dhcp snooping trust` commando
+- **Stap 3**: op untrusted interfaces, limiteer het aantal DHCP discovery berichten dat kan ontvangen worden door het `ip dhcp snooping limit rate <packet-per-second>` commando
+- **Stap 4**: zet DHCP snooping door VLAN aan, via `ip dhcp snooping <vlan>` commando
+
 ### 11.3.4 DHCP Snooping Configuration Example
 
 ## 11.4 Mitigate ARP Attacks
 ### 11.4.1 Dynamic ARP Inspection
+- Dynamic ARP inspection (DAI) vereist DHCP snooping en help ARP aanvallen tegen te gaan door:
+  - 
 ### 11.4.2 DAI Implementation Guidelines
+- guidelines
+  - zet globale DHCP snooping aan
+  - zet DHCP snooping aan op geselecteerde VLANs
+  - zet DAI aan op geselecteerde VLANs
+  - configueer vertrouwde interfaces voor de DHCP snooping en ARP inspectie
 ### 11.4.3 DAI Configuration Example
 
 ## 11.5 Mitigate STP Attacks
 ### 11.5.1 PortFast and BPDU Guard
+- PortFast
+  - PortFast brengt een poort onmiddelijk naar de forwarding state
+  - zet dit op alle end-user toegangspoorten
+- BPDU Guard
+  - zet onmiddelijk error disables een poort dat een BPDU ontvangt
+  - moet enkel maar geconfigueerd op de interfaces die aan de end-apparaten
+
 ### 11.5.2 Configure PortFast
+- zet PortFast enkel aan op toegangspoorten
+- kan aangezet worden door:
+  - op een interface: `spanning-tree portface` interface configuratie commando
+  - globaal: `spanning-tree portfast default` globale configuratie commando, om PortFast aan te zetten op alle toegangspoorten
+- om de configuratie te verifiëren
+  - `show running-config | begin span`
+  - `show spanning-tree summary`
+
 ### 11.5.3 Configure BPDU Guard
+- geconfigueerd worden door:
+  - op een interface: `spanning-tree bpduguard enable`
+  - globaal: `spanning-tree portfast bpduguard default`
