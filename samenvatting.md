@@ -775,7 +775,6 @@ show vlan [brief | id vlan-id | name vlan-name | summary]
 ![LACP Mode Setting Example](img/LACPModeSettingExample.png)
 
 ## 6.2 Configure EtherChannel
-
 ### 6.2.1 Configuration Guidelines
 
 - EtherChannel Support: alle Ethernet interfaces moeten EtherChannel ondersteunen zonder dat het nodig is dat de interfaces
@@ -783,15 +782,12 @@ show vlan [brief | id vlan-id | name vlan-name | summary]
 - VLAN match: alle interfaces moeten aan dezelfde VLAN
 - Range of VLANs: EtherChannel ondersteunt dezelfde ranga aan VLANs op alle interfaces in a trunking EtherChannel
 
-### 6.2.2 LACP Configuration Example
-
 ## 6.3 Verify and Troubleshoot EtherChannel
-
 ### 6.3.1 Verify EtherChannel
 
 - een paar commando's
     - `show interfaces port-channel` ⇒ toont de general status van de port channel interface
-    - `show etherchannel summary` ⇒ tootn 1 lijn van informaite per poort channel
+    - `show etherchannel summary` ⇒ toont 1 lijn van informatie per poort channel
     - `show etherchannel port-channel` ⇒ toont informatie van een specifieke poort channel interface
     - `show interfaces etherchannel` ⇒ geeft informatie over de role van het fysieke lid interface van de EtherChannel
 
@@ -801,12 +797,8 @@ show vlan [brief | id vlan-id | name vlan-name | summary]
 - Meest verkomende proberen met EtherChannel:
     - de poorten zijn geen deel van dezelfde VLAN
 
-### 6.3.3 Troubleshoot EtherChannel Example
-
 # Module 7: DHCPv4
-
 ## 7.1 DHCPv4 Concepten
-
 ### 7.1.1 DHCPv4 Server and Client
 
 - Dynamic Host Configuration Protocol v4 (DHCPv4) geeft IPv4-adressen en andere netwerk-configuratie informatie dynamisch
@@ -887,9 +879,7 @@ DHCPv4 service staat standaard aan
 ### 7.3.3 Home Router as a DHCPv4 Client
 
 # Module 8: SLAAC and DHCPv6
-
 ## 8.1 IPv6 GUA Assignment
-
 ### 8.1.1 IPv6 Host Configuration
 
 - op een router, een IPv6 global unicast address (GUA) is manueel geconfigueerd via het `ipv6 address ipv6-address/prefix-length` commando
@@ -912,7 +902,6 @@ DHCPv4 service staat standaard aan
     - M flag: The Managed Address Configuration flag geeft aan een stateful DHCPv6 server te gebruiken om een IPv6 GUA te verkrijgen
 
 ## 8.2 SLAAC
-
 ### 8.2.1 SLAAC Overview
 
 - niet iedere netwerk heeft toegang tot een DHCPv6 server maar ieder aparaat in een IPv6 netwerk heeft een GUA nodig. Via de SLAAC methode geeft de mogelijkheid aan een host om zij eigen unieke IPv6 global unicast address zonder de diensten van een DHCPv6 server
@@ -931,7 +920,6 @@ DHCPv4 service staat standaard aan
     - hosts met IPv6 die een IPv6 addresserings informatie wil stuurt een RS bericht naar de IPv6 routers met multicast adres van FF02::2
 
 ## 8.3 DHCPv6
-
 ### 8.3.1 DHCPv6 Operation Steps
 
 - stateful DHCPv6 heeft geen SLAAC nodig, maar stateless DHCPv6 wel
