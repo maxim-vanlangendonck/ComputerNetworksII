@@ -987,6 +987,13 @@ DHCPv4 service staat standaard aan
 
 ### 8.4.5 Configure a Stateful DHCPv6 Client
 
+- een router kan ook een DHCPv6 client zijn, hiervoor moet ipv6 unicast-routing aantaan en een IPv6 link-local adres hebben
+- 5 stappen om een router als stateless DHCPv6 client te configueren en verifiëren
+  - zet IPv6 routing aan, via `ipv6 unicast-routing`
+  - gebruik commando `ipv6 enable`
+  - `ipv6 address dhcp`
+  - verifieer via `show ipv6 interface brief`
+  - verifieer andere informatie via `show ipv6 dhcp interface g0/0/1`
 ### 8.4.6 DHCPv6 Server Verification Commands
 
 - `show ipv6 dhcp pool`
@@ -994,10 +1001,15 @@ DHCPv4 service staat standaard aan
 
 ### 8.4.7 Configure a DHCPv6 Relay Agent
 
+- via het commando `ipv6 dhcp relay destination <ipadres>`
+
+### 8.4.8 Verify the DHCPv6 Relay Agent
+
+- `show ipv6 dhcp interface`
+- `show ipv6 dhcp binding`
+
 # Module 9: FHRP Concepts
-
 ## 9.1 First Hop Redundancy Protocols
-
 ### 9.1.1 Default Gateway Limitations
 
 - end-apparaten zijn ingesteld met een single default gateway IPv4 address
@@ -1026,7 +1038,6 @@ DHCPv4 service staat standaard aan
 ![FHRP Options](img/FHRPOptions.png)
 
 ## 9.2 HSRP
-
 ### 9.2.1 HSRP Overview
 
 - Cisco geeft HSRP en HSRP voor IPv6 als een manier om tegen te gaan dat je outside netwerk access verliest wanneer je default router faalt.
