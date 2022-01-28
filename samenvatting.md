@@ -1,4 +1,17 @@
 # Samenvatting CNII
+|   Inhoudstafel    |
+| :---  |
+| 1.[Basic Device Configuration](#module-1--basic-device-configuration)
+| 2.[Switching Concepts](#module-2-switching-concepts)
+| 3.[VLANs](#module-3-vlans)
+| 4.[Inter-VLAN-routing](#module-4-inter-vlan-routing)
+| 5.[STP Concepts](#module-5-stp-concepts)
+| 6.[Etherchannel](#module-6-etherchannel)
+| 7.[DHCPv4](#module-7-dhcpv4)
+| 8.[SLAAC and DHCPv6](#module-8-slaac-and-dhcpv6)
+| 9.[FHRP Concepts](#module-9-fhrp-concepts)
+| 10.[LAN Security Concepts](#module-10-lan-security-concepts)
+| 11.[Switch Security Configuration](#module-11-switch-security-configuration)
 
 # Module 1 – Basic Device Configuration
 ## Configure a Switch with Initial Settings
