@@ -227,7 +227,7 @@ De mogelijke errors code dit kunnen oplopen bij het commando show interfaces.
 ### 2.1.2 The Switch MAC Address Table
 
 - Switch zal de bestemming MAC adres gebruiken om de egress interface te achterhalen.
-- ook Content Addressable Memory (CEM) table genoemd
+- ook Content Addressable Memory (CAM) table genoemd
 
 ### 2.1.3 The Switch Learn and Forward Method
 
@@ -237,7 +237,7 @@ Een frame volgt een twee-stappig proces wanneer deze binnenkomt in een switch:
     - Ieder pakket wordt bekeken of er nieuwe informatie te leren valt
         - Bron MAC adres staat niet in de tabel: het MAC adres en de bijhorende poortnummer wordt in de tabel gestoken
         - Bron MAC adres staat wel in de tabel: timer wordt gereset
-- **Stap 2: Forward:** het MAC adres van de bestemming onderzoeken:
+- **Stap 2: FORWARD:** het MAC adres van de bestemming onderzoeken:
     - als het MAC adres een unicast adres is, wordt er in de tabel gekeken of er een match is:
         - als deze er is de frame wordt geforward naar de specifieke poort
         - als deze er niet is
@@ -246,7 +246,7 @@ Een frame volgt een twee-stappig proces wanneer deze binnenkomt in een switch:
 
 ### 2.1.5 Switching Forwarding Methods
 
-Switch maakt Layer 2 forward beslissing heel snel, dit komt door software op ASICs (Application-Specific-Integrated Circuits.
+Switch maakt Layer 2 forward beslissing heel snel, dit komt door software op ASICs (Application-Specific-Integrated Circuits)
 
 - De Switch heeft hiervoor 2 methodes:
     - **Store-and-Forward switching**: de beslissing wordt genomen achter dat de VOLLEDIGE frame ontvangen werd en hij geen errors heeft (dit met het CRC). Cisco’s primaire switching methode
@@ -264,7 +264,7 @@ Switch maakt Layer 2 forward beslissing heel snel, dit komt door software op ASI
 
 - Kan heel snel forward beslissingen nemen, direct achter het vastleggen van de bestemming MAC.
 - Concepten van CTS
-    - Latency kan onder 10 micorseconden zijn
+    - Latency kan onder 10 microseconden zijn
     - Check de FCS niet
     - Kan de bandbreedte problemen opnemen
     - Kan geen poorten ondersteunen met verschillende snelheden tussen ingress naar egress
@@ -277,16 +277,17 @@ Switch maakt Layer 2 forward beslissing heel snel, dit komt door software op ASI
 - Collision domeinen = netwerk segmenten dat dezelfde bandbreedte delen
     - Als er 2 of meerdere apparaten op hetzelfde collision domein proberen te communiceren op hetzelfde moment, dan zal er een botsing zijn
 - Als een switch in full-duplex werkt, zal er geen collision domain zijn
-    - Maar wel als er een poort in half-duplex werkt, als deze hierin functioneert heeft ieder segment zijn eigen collision domain
+- Als er 1 of 2 apparaten in half-duplex werkt, is er wel een collision domein
+  - collisions zijn nu mogelijk
+  - er zal een strijd zijn voor de bandbreedte
 - Default: de switch en het apparaat waaraan het geconnecteerd is zullen samen overleggen want ze zullen doen (zowel duplex als speed), ze zoeken de hoogst en best mogelijkste (full & 1000 Mbps)
 
 ### 2.2.2 Broadcast Domains
 
 - = een collectie van intergeconnecteerde switches
-    - Enkel een netwerk laag apparaat (router) kan een laag 2 broadcast domein verdelen
-    - Router kunnen gebruikt worden om broadcast en collision domeinen te segmenteren
-- Een laag 2 broadcast domein = de MAC adres broadcast domein.
+    - Enkel een netwerk laag 3 apparaat (router) kan een broadcast domein verdelen = MAC broadcast domain
     - Dit bestaat uit alle apparaten die op de LAN verbonden zijn en ontvangen broadcast frames van de host
+    - Router kunnen gebruikt worden om broadcast en collision domeinen te segmenteren
 - Broadcasts zijn nodig voor om apparaten en netwerkservices te lokaliseren op het netwerk, kunnen ook netwerk efficiëntie doen verlagen
     - Te veel broadcasts kunnen leiden tot netwerkopstoppingen verlagen de netwerk performantie
 - Wanneer er 2 switches geconnecteerd worden aan elkaar broadcast domein wordt vergroot
@@ -294,8 +295,8 @@ Switch maakt Layer 2 forward beslissing heel snel, dit komt door software op ASI
 ### 2.2.3 Alleviate Network Congestion
 
 - Karakteristieken van switches om netwerkopstoppingen te vermijden
-    - **Hoge poortsnelheden**
-    - **Fast internal swichting:** gebruik van een snel internal bus of gedeeld geheugen, geven hogere performantie
+    - **Hoge poortsnelheden**: hangt af van het model, switches kunnen poortsnelheden hebben tot 100Gbps
+    - **Fast internal switching:** gebruik van een snel internal bus of gedeeld geheugen, geven hogere performantie
     - **Grote frame buffers:** hierdoor kan er ingress van een snellere poort geforward worden naar een tragere egress poort zonder frames te verliezen
     - **Hoge poort densiteit:** dit verminderd het aantal switches nodig, zorgt ervoor dat de traffic lokaal blijft
 
@@ -358,7 +359,7 @@ Switch maakt Layer 2 forward beslissing heel snel, dit komt door software op ASI
 
 ### 3.2.3 Networks with VLANs
 
-- zonder een Layer 3 apparaat om de VLANs te verbinden met elkaar, de apparaten in  andere VLANs kunnen niet communiceren
+- zonder een Layer 3 apparaat om de VLANs te verbinden met elkaar, de apparaten in andere VLANs kunnen niet communiceren met elkaar
 
 ### 3.2.4 VLAN Identification with a Tag
 
@@ -414,21 +415,15 @@ de VOIP (Voice Over IP) is een driepoortige switch
 
 ![VLAN Creation Commands](img/VLANCreationCommands.png)
 
-### 3.3.3 VLAN Creation Example
-
 ### 3.3.4 VLAN Port Assignment Commands
 
 ![VLAN Port Assignment](img/VLANPortAssignment.png)
-
-### 3.3.5 VLAN Port Assignment Example
 
 ### 3.3.6 Data and Voice VLANs
 
 ⇒ een access poort mag alleen maar verbonden zijn met 1 data VLAN
 
 MAAR het mag ook verbonden zijn aan 1 Voice VLAN wanneer er een telefoon aan
-
-### 3.3.7 Data and Voice VLAN Example
 
 ### 3.3.8 Verify VLAN Information
 
@@ -453,12 +448,9 @@ show vlan [brief | id vlan-id | name vlan-name | summary]
 - reload de switch wanneer je een VLAN verwijderd hebt
 
 ## 3.4 VLAN Trunks
-
 ### 3.4.1 Trunk Configuration Commands
 
-![Trunk Configuration Commands](img/trunkConfigurationCommmands.png)
-
-### 3.4.2 Trunk Configuration Example
+![Trunk Configuration Commands](img/trunkConfigurationCommands.png)
 
 ### 3.4.3 Verify Trunk Configuration
 
@@ -506,9 +498,7 @@ show vlan [brief | id vlan-id | name vlan-name | summary]
     - gebruik `show dtp interface` om DTP mode te weten
 
 # Module 4: Inter-VLAN Routing
-
 ## 4.1 Inter-VLAN Routing Operation
-
 ### 4.1.1 What is Inter-VLAN Routing?
 
 - = het process van forwarding netwerk verkeer van de ene VLAN naar de andere VLAN
@@ -524,6 +514,8 @@ show vlan [brief | id vlan-id | name vlan-name | summary]
 - iedere router interface is geconnecteerd met een switch poort in verschillende VLANs
 - er zitten hierdoor wel limitaties op
 - ! wordt niet meer langer geïmplementeerd in switches netwerken
+  
+![Legacy Inter-VLAN Routing](img/LegacyInter-VLANRouting.png)
 
 ### 4.1.3 Router-on-a-Stick Inter-VLAN Routing
 
@@ -547,16 +539,9 @@ show vlan [brief | id vlan-id | name vlan-name | summary]
     - het meest gebruik op een campus LAN dan router
 - nadeel ⇒ het is duurder
 
-### 4.1.5
-
 ## 4.2 Router-on-a-Stick Inter-VLAN Routing
 
-### 4.2.1 Router-on-a-Stick Scenario
-
-### 4.2.2 S1 VLAN and Trunking Configuration
-
 ## 4.3 Inter-VLAN Routing using Layer 3 Switches
-
 ### 4.3.1 Layer 3 Switch Inter-VLAN Routing
 
 - een grote onderneming heeft een sneller en betere methode nodig voor inter-VLAN routing
@@ -565,8 +550,16 @@ show vlan [brief | id vlan-id | name vlan-name | summary]
     - route van de ene VLAN naar een andere VLAN door gebruik te maken van meerder Switched Virtual Interfaces (SVIs)
     - converteert een laag 2 switchpoort naar een laag 3 interface, een routed poort is ongeveer hetzelfde als een fysieke interface op een Cisco IOS router
 
-## 4.4 Troubleshoot Inter-VLAN Routing
+### 4.3.3 Layer 3 Switch Configuration
+- **Stap 1**: Maak de VLANs
+- **Stap 2**: maak de SVI VLAN interfaces
+- **Stap 3**: configueer access poorten
+- **Stap 4**: zet IP routing aan via commando `ip routing`
 
+### 4.3.5 Routing on a Layer 3 Switch
+
+
+## 4.4 Troubleshoot Inter-VLAN Routing
 ### 4.4.1 Common Inter-VLAN Issues
 
 ![Common Inter-VLAN Issues](img/commonInterVLANIssues.png)
