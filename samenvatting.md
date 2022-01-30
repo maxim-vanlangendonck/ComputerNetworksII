@@ -540,7 +540,12 @@ show vlan [brief | id vlan-id | name vlan-name | summary]
 - nadeel ⇒ het is duurder
 
 ## 4.2 Router-on-a-Stick Inter-VLAN Routing
-
+### Configuration
+- stappen te doen op de switches:
+  - **Stap 1**: maak VLANs en geef ze een naam
+  - **Stap 2**: maak de management interface aan
+  - **Stap 3**: configueer de toegangspoorten
+  - **Stap 4**: configueer trunking poorten
 ## 4.3 Inter-VLAN Routing using Layer 3 Switches
 ### 4.3.1 Layer 3 Switch Inter-VLAN Routing
 
@@ -609,7 +614,6 @@ show vlan [brief | id vlan-id | name vlan-name | summary]
     - herbereken in geval van Link Failure
 
 ## 5.2 STP Operations
-
 ### 5.2.1 Steps to a Loop-Free Topology
 
 1. bepaal de root bridge
@@ -683,12 +687,9 @@ show vlan [brief | id vlan-id | name vlan-name | summary]
     - maakt het mogelijk om verschillende root bridge voor verschillende sets van VLANs
 
 ## 5.3 Evolution of STP
-
 ### 5.3.1 Different Versions of STP
 
 ![Versions of STP](img/versionsOfSTP.png)
-
-### 5.3.2 RSTP Concepts
 
 ### 5.3.3 RSTP Port States en Port Roles
 
@@ -711,9 +712,7 @@ show vlan [brief | id vlan-id | name vlan-name | summary]
 - een switchpoort met PortFast enabled ⇒ kan nooit BPDUs ontvangen
 
 # Module 6: EtherChannel
-
 ## 6.1 EtherChannel Operation
-
 ### 6.1.1 Link Aggregation
 
 - in sommige scenario's is het mogelijk om een extra link te leggen voor meer bandbreedte en redundantie
@@ -830,7 +829,6 @@ show vlan [brief | id vlan-id | name vlan-name | summary]
 2. DHCP Acknowledgment (DHCPACK)
 
 ## 7.2 Configure a Cisco IOS DHCPv4 Server
-
 ### 7.2.1 Cisco IOS DHCPv4 Server
 
 - een Cisco router kan ingesteld worden om te acten als DHCPv4 Server
@@ -843,15 +841,11 @@ show vlan [brief | id vlan-id | name vlan-name | summary]
 
 ![Configuratie DHCPv4 Pool](img/configuratieDHCPv4Pool.png)
 
-### 7.2.3 Configuration Example
-
 ### 7.2.4 DHCPv4 Verification
 
 ![DHCPv4 Verification](img/DHCPv4Verificatie.png)
 
 ### 7.2.5 Verify DHCPv4 is Operational
-
-### 7.2.6
 
 ### 7.2.7 Disable the Cisco IOS DHCPv4 Server
 
@@ -879,10 +873,6 @@ DHCPv4 service staat standaard aan
 ### 7.3.1 Cisco Router as a DHCPv4 Client
 
 - een Ethernet interface instellen als DHCP client ⇒ `ip address dhcp` , op de interface configuratie mode
-
-### 7.3.2 Configuration Example
-
-### 7.3.3 Home Router as a DHCPv4 Client
 
 # Module 8: SLAAC and DHCPv6
 ## 8.1 IPv6 GUA Assignment
